@@ -30,15 +30,18 @@ def make_text(chains):
         index = random.randint(0,len(markov_value)-1)
         final_string = final_string + tuple_start[1] + " "
         tuple_start = (tuple_start[1], markov_value[index])
-        if final_string[-1] in [".", "?", "!"]:
+        if final_string[-2] in [".", "?", "!"] and len(final_string > 70:
             break
     return final_string
 
 
 def main():
 
-    file = open("fscott.txt")
+    file = open("frozen.txt")
     input_text = file.read()
+    file2 =open("fscott.txt")
+    input_text2 = file2.read()
+    input_text += input_text2
     chain_dict = make_chains(input_text)
     random_text = make_text(chain_dict)
     print random_text
