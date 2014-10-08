@@ -4,6 +4,7 @@ import random
 def make_chains(corpus):
     """Takes an input text as a string and returns a dictionary of
     markov chains."""
+
     word_list = corpus.split()
     markov_dict = {}
     for idx in range(len(word_list)-2):
@@ -17,19 +18,16 @@ def make_chains(corpus):
 def make_text(chains):
     """Takes a dictionary of markov chains and returns random text
     based off an original text."""
+
     tuple_start = ("could", "you")
-    counter = 0
     final_string = ""
-    while tuple_start != ("the", "end") or counter == 20:
-        markov_value = chains.get(tuple_start, ("the", "end"))
-        #print markov_value
+    while chains.get(tuple_start):# != ("the", "end"):
+        markov_value = chains.get(tuple_start)#, ("the", "end"))
         index = random.randint(0,len(markov_value)-1)
-        #print index
         tuple_start = (tuple_start[1], markov_value[index])
+        final_string = final_string + " " + tuple_start[1]
         #print tuple_start
-        #print markov_value[index]
-        counter += 1
-        final_string = final_string + tuple_start[1]
+        # print final_string
     return final_string
 
 
@@ -45,4 +43,5 @@ def main():
     print random_text
 
 if __name__ == "__main__":
+
     main()
