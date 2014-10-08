@@ -30,7 +30,7 @@ def make_text(chains):
         index = random.randint(0,len(markov_value)-1)
         final_string = final_string + tuple_start[1] + " "
         tuple_start = (tuple_start[1], markov_value[index])
-        if final_string[-2] in [".", "?", "!"] and len(final_string > 70:
+        if final_string[-2] in [".", "?", "!"] and len(final_string) > 70:
             break
     return final_string
 
