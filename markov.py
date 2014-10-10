@@ -8,10 +8,13 @@ def make_chains(corpus):
     word_list = corpus.split()
     markov_dict = {}
     for idx in range(len(word_list)-2):
-        if (word_list[idx],word_list[idx+1]) in markov_dict:
-            markov_dict[(word_list[idx],word_list[idx+1])] += [word_list[idx+2]]
+        word1 = word_list[idx]
+        word2 = word_list[idx+1]
+        word3 = word_list[idx+2]
+        if (word1,word2) in markov_dict:
+            markov_dict[(word1,word2)] += [word3]
         else:
-            markov_dict[(word_list[idx],word_list[idx+1])] = [word_list[idx+2]]
+            markov_dict[(word1,word2)] = [word3]
     return markov_dict
 
 
